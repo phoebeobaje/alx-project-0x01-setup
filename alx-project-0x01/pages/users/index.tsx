@@ -5,13 +5,13 @@ import { UserProps } from "@/interfaces";
 import { useState } from "react";
 import { UserData } from "@/interfaces";
 import UserModal from "@/components/common/UserModal";
-const Users: React.FC<UserProps[]> = ({users}) => {  
+const Users: React.FC<UserProps[]> = ({posts}) => {  
   const [isModalOpen, setModalOpen] = useState(false);
     const [user, setUser] = useState<UserData | null>(null);
   
   
     const handleAddUser = (newUser: UserData) => {
-      setUser({ ...newUser, id: users.length + 1 });
+      setUser({ ...newUser, id: posts.length + 1 });
     };
    
   return(
@@ -25,7 +25,7 @@ const Users: React.FC<UserProps[]> = ({users}) => {
         </div>
         <div className="grid grid-cols-3 gap-2 ">
           {
-            users.map(({ name, email,  username, id, address, phone, website, company}: UserProps, key: number) => (
+            posts.map(({ name, email,  username, id, address, phone, website, company}: UserProps, key: number) => (
               <UserCard name={name} email={email} username={username} id={id} address={address} phone={phone} website={website} company={company} key={key} />
             ))
           }
