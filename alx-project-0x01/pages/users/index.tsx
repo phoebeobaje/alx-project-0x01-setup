@@ -3,7 +3,7 @@ import UserCard from "@/components/common/UserCard";
 import { UserProps } from "@/interfaces";
 
 
-const UserPage: React.FC<UserProps[]> = ({posts}) => {  
+const Users: React.FC<UserProps[]> = ({posts}) => {  
     return(
         <div>
       <Header />
@@ -14,7 +14,7 @@ const UserPage: React.FC<UserProps[]> = ({posts}) => {
         </div>
         <div className="grid grid-cols-3 gap-2 ">
           {
-            posts?.map(({ name, email,  username, id, address, phone, website, company}: UserProps, key: number) => (
+            posts.map(({ name, email,  username, id, address, phone, website, company}: UserProps, key: number) => (
               <UserCard name={name} email={email} username={username} id={id} address={address} phone={phone} website={website} company={company} key={key} />
             ))
           }
@@ -34,4 +34,4 @@ export async function getStaticProps() {
   }
 }
 
-export default UserPage;
+export default Users;
